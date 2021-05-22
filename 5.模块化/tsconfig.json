@@ -1,0 +1,17 @@
+{
+  "compilerOptions": { // 配置编译选项
+    "target": "es2016",  // 配置编译目标代码的版本标准 es2016就是es7
+    "module": "commonjs", // 配置编译目标使用的模块化标准
+    "lib": ["es2017"],  // 设置为es7环境,
+    "outDir": "./dist",  // 编译的结果放在哪里
+    "strictNullChecks": true,   // 更加严格的空类型判断,undefined和null不能赋值给其他类型变量,
+    "removeComments": true,    // 编译结果移除注释
+    "noImplicitUseStrict": true, // 编译结果不包含"use strict"
+    "esModuleInterop": true, // 启用es模块化交互非es模块导出
+    "noEmitOnError": true, // 代码错误时不生成编译结果
+    "moduleResolution": "node", // 设置解析模块的策略
+
+  },
+  "include": ["./src"],  // 表示要编译的文件夹,哪个文件夹下边的代码
+  // "files": ["./src/index.ts"]   //编译某个文件
+}  
