@@ -92,4 +92,33 @@ type Point3 = PartialPointX2 & { y: number };
 type PartialPointX3 = { x: number };
 interface Point4 extends PartialPointX3 { y: number };
 
-//  Type alias extends 
+//  Type alias extends interface
+interface PartialPointX4 { x: number };
+type Point5 = PartialPointX4 & { y: number };
+
+// 4.4 Implements
+// 类可以以相同的方式实现接口或类型别名，但类不能实现使用类型别名定义的联合类型
+interface Point6 {
+  x: number;
+  y: number;
+}
+class SomePoint implements Point6 { x: 1; y: 2; }
+
+type Point7 = { x: number; y: number };
+
+class SomePoint2 implements Point7 { x = 1; y = 2; }
+
+type PartialPointX8 = { x: number } | { y: number };
+// A class can only implement an object type or intersecrion of object types with statically known members
+
+// 报错
+// class SomePartialPoint implements PartialPointX8 {
+//   x = 1;
+//   y = 2;
+// } 
+
+// 4.5 Declaration merging
+// 与类型别名不同，接口可以定义多次，会被自动合并为单个接口
+interface Point8 { x: number }
+interface Point8 { y: number }
+const point8: Point8 = { x: 1, y: 1 };
