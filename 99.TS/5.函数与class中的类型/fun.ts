@@ -68,3 +68,17 @@ const res3 = func2(99, false); // number
 async function asyncFunc(): Promise<void> {}
 function* genFunc(): Iterable<void> {}
 async function* asyncGenFunc(): AsyncIterable<void>{}
+
+
+// 六、私有构造函数
+class Foo11 {
+  private constructor() {}
+}
+// 当实例化这个类的时候，提示类的构造函数被标记为私有，且只允许在类内部访问
+
+// 要一个不能实例化的类有啥用？有些场景比如类作为方法时，内部全部是静态资源，不希望实例化这个类，用私有构造函数可以阻止错误地被实例化
+class Utils1 {
+  public static identifier = 'sunshineboy'
+  private constructor() {}
+  public static makeHappy() {}
+}
